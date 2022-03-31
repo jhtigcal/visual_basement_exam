@@ -1,3 +1,5 @@
+import { convertPascalToSentence } from '../../../helpers';
+
 function NumberInput({ field, fieldIndex, onChange }) {
   const { fieldName, value } = field;
 
@@ -10,9 +12,12 @@ function NumberInput({ field, fieldIndex, onChange }) {
   }
 
   return (
-    <div className="form-group">
-      <label to={fieldName}>{fieldName}</label>
+    <div className="form-group mb-2">
+      <label to={fieldName} className="form-label">
+        {convertPascalToSentence(fieldName)}
+      </label>
       <input
+        className="form-control"
         id={fieldName}
         name={fieldName}
         value={value}

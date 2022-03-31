@@ -1,3 +1,5 @@
+import { convertPascalToSentence } from '../../../helpers';
+
 function TextAreaInput({ field, fieldIndex, onChange }) {
   const { fieldName, value } = field;
 
@@ -10,14 +12,17 @@ function TextAreaInput({ field, fieldIndex, onChange }) {
   }
 
   return (
-    <div className="form-group">
-      <label to={fieldName}>{fieldName}</label>
+    <div className="form-group mb-2">
+      <label to={fieldName} className="form-label">
+        {convertPascalToSentence(fieldName)}
+      </label>
       <textarea
         rows={4}
         id={fieldName}
         name={fieldName}
         value={value}
         onChange={handleFieldDataChange}
+        className="form-control"
       />
     </div>
   );
